@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EmpleadoActividadController;
+use GuzzleHttp\Client;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,11 @@ Route::put('/carreras/{id}/toggle', [App\Http\Controllers\CarreraController::cla
 Route::resource('periodos', App\Http\Controllers\PeriodoController::class);
 Route::put('/periodos/{id}/toggle', [App\Http\Controllers\PeriodoController::class, 'toggle'])->name('periodos.toggle');
 Route::resource('empleadoscarreras', App\Http\Controllers\EmpleadosCarreraController::class);
+
+Route::get('/empleadoactividad', [EmpleadoActividadController::class, 'index'])->name('empleadoactividad.index');
+Route::get('/empleadoactividad/create', [EmpleadoActividadController::class, 'create'])->name('empleadoactividad.create');
+Route::post('/empleadoactividad', [EmpleadoActividadController::class, 'store'])->name('empleadoactividad.store');
+Route::get('/empleadoactividad/{id}', [EmpleadoActividadController::class, 'show'])->name('empleadoactividad.show');
+Route::get('/empleadoactividad/{id}/edit', [EmpleadoActividadController::class, 'edit'])->name('empleadoactividad.edit');
+Route::put('/empleadoactividad/{id}', [EmpleadoActividadController::class, 'update'])->name('empleadoactividad.update');
+Route::delete('/empleadoactividad/{id}', [EmpleadoActividadController::class, 'destroy'])->name('empleadoactividad.destroy');
